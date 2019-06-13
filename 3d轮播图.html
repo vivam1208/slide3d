@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
+        .box_map {
+            position: absolute;
+            width: 800px;
+            height: 300px;
+            top: 0;
+            /*left: -3000px;*/
+            /*margin-left: -300px;
+            margin-top: -150px;*/
+            overflow: hidden;
+        }
+
+        .box_map .box_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*width: auto;*/
+            height: 300px;
+        }
+
+        .box_map .box_img img {
+            width:800px;
+            height: 300px;
+            float: left;
+        }
+
+        .box_map .prev, .box_map .next {
+            position: absolute;
+            width: 50px;
+            background: rgba(0, 0, 0, .3);
+            border: 0;
+            font-size: 20px;
+            color: white;
+            top: 50%;
+        }
+
+        .box_map .prev {
+            left: 0;
+        }
+
+        .box_map .next {
+            right: 0;
+        }
+
+        .box_ul {
+            position: absolute;
+            right: 10%;
+            bottom: 20px;
+        }
+
+        .box_ul li {
+            float: left;
+            color: black;
+            list-style: none;
+            padding: 5px;
+            background: white;
+            border: 1px solid black;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .box_ul li.active {
+            color: white;
+            background-color: rgba(0, 0, 0, .7);
+        }
+    </style>
+</head>
+<body>
+<p>默认效果</p>
+<div class="default"></div>
+
+<p>hover时候暂停</p>
+<div class="hover"></div>
+
+<p>修改图片</p>
+<div class="imgs"></div>
+
+<p>改变轮播项目数量</p>
+<div class="items"></div>
+
+<p>改变轮播动画</p>
+<div class="animation"></div>
+
+<p>派生选择器</p>
+<div id="slide" class="slide" title="派生"></div>
+
+<p>改变容器大小</p>
+<div class="content"></div>
+
+<p>相同类名</p>
+<div class="content"></div>
+
+<p>可点击进行页面跳转</p>
+<div class="link"></div>
+
+<p>项目导航circle</p>
+<div class="circle"></div>
+
+<p>项目导航disc</p>
+<div class="disc"></div>
+
+<p>项目导航progress</p>
+<div class="progress"></div>
+
+<p>slide2d默认无特效</p>
+<div class="slide2d"></div>
+
+<p>slide2d-slide左右滑动</p>
+<div class="slide"></div>
+
+<p>slide2d-fade淡入淡出</p>
+<div class="fade"></div>
+
+<p>slide2d-move上下滑动</p>
+<div class="move"></div>
+
+<script src="slide.js"></script>
+<script>
+    var slide = {
+        default: new Slide({
+            selector: '.default',
+            type: '3d'
+        }),
+        hover: new Slide({
+            selector: '.hover',
+            animation: {
+                state: 'hover'
+            }
+        }),
+        imgs: new Slide({
+            selector: '.imgs',
+            images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+        }),
+        items: new Slide({
+            selector: '.items',
+            items: 20
+        }),
+        animation: new Slide({
+            selector: '.animation',
+            animation: {
+                state: 'hover',
+                delay: .05,
+                duration: 5,
+                function: 'ease-in-out',
+                count: 'infinite'
+            }
+        }),
+        selector: new Slide({
+            selector: 'div#slide.slide[title="派生"]'
+        }),
+        content: new Slide({
+            selector: '.content',
+            wrapStyle: {
+                width: 1000,
+                height: 150
+            }
+        }),
+        link: new Slide({
+            selector: '.link',
+            link: {
+                target: '_blank'
+            }
+        }),
+        slide2d: new Slide({
+            selector: '.slide2d',
+            type: '2d',
+            items: 1,
+            a:true
+            // slide2dType: 'block'
+        })
+    };
+</script>
+
+
+</body>
+</html>
